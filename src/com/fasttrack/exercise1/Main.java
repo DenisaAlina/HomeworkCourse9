@@ -15,6 +15,8 @@ public class Main {
         electronic.increaseStock();
         Product.print();
         Cosmetics.print();
+        Product prod = new Cosmetics(150.0, "hair dryer", "black", 300.0);
+        ((Cosmetics)prod).chooseWhiteColor();
 
     }
 }

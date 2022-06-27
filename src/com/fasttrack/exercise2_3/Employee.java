@@ -54,7 +54,23 @@ public class Employee implements Person {
     public int age() {
         LocalDate date = LocalDate.now();
         int year = date.getYear();
+        int month = date.getMonthValue();
+        int day = date.getDayOfMonth();
         int birthYear = (getBirthday()).getYear();
-        return year - birthYear;
+        int birthMonth = (getBirthday()).getMonthValue();
+        int birthDay = (getBirthday()).getDayOfMonth();
+        int age = 0;
+        if (month < birthMonth) {
+            age = year - birthYear - 1;
+        } else if (month > birthMonth) {
+            age = year - birthYear;
+        } else if (month == birthMonth) {
+            if (day < birthDay) {
+                age = year - birthYear - 1;
+            } else {
+                age = year - birthYear;
+            }
+        }
+        return age;
     }
 }
